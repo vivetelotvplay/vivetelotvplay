@@ -11,14 +11,15 @@ body{margin:0 auto; text-align:center;}
 </body>
 </html>
 
-$(document).ready(function () {
-  function reorient(e) {
-    var portrait = (window.orientation % 180 == 0);
-    $("body > div").css("-webkit-transform", !portrait ? "rotate(-90deg)" : "");
-  }
-  window.onorientationchange = reorient;
-  window.setTimeout(reorient, 0);
-});
+-ms-transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+  border-radius: 20px;  
+  background-color:#ddd;
+  width:200px;
+  padding:10px;
 
 <!DOCTYPE html>
 <head><title></title></head>
