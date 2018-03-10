@@ -1,12 +1,40 @@
 <head><meta name="viewport" content="width=device-width, initial-scale=1.0">
-Accept-Ranges: bytes
-Access-Control-Expose-Headers: Date, Server, Content-Type, Content-Length
-Server: WowzaStreamingEngine/4.7.1
-Cache-Control: no-cache
-Access-Control-Allow-Origin: *
-Access-Control-Allow-Credentials: true
-Access-Control-Allow-Methods: OPTIONS, GET, POST, HEAD
-Access-Control-Allow-Headers: Content-Type, User-Agent, If-Modified-Since, Cache-Control, Range
-Date: Sat, 10 Mar 2018 11:07:36 GMT
-Content-Type: application/vnd.apple.mpegurl
-Content-Length: 136
+<html>
+<body>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="theme-color" content="#c92127">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<style>
+@media all and (orientation:portrait) {
+    width: 100%;
+    height: auto;
+    zoom: 100%;
+}
+@media all and (orientation:landscape) {
+    width: 100%;
+    height: 100%;
+    zoom: 100%;
+}
+body {
+    margin: 0;
+    background: black;    
+}
+.iframevideoenvivo {
+    zoom: 100%;
+    overflow: hidden;
+}
+</style>
+<script>
+window.onorientationchange = function()
+{
+   window.location.reload();
+}
+</script>
+</head>
+<iframe src="//iframe.dacast.com/b/106615/c/463712" width="100%" height="100%" frameborder="0" scrolling="no" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
+
+
+</body>
+</html>
