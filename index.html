@@ -10,7 +10,26 @@ body{margin:0 auto; text-align:center;}
 
 </body>
 </html>
-
+<style type="text/css">
+    #aviso-movil-horizontal { display: none; }
+    @media only screen and (orientation:portrait) {
+        #wrapper { display:none; }
+        #aviso-movil-horizontal { display:block; }
+    }
+    @media only screen and (orientation:landscape) {
+        #aviso-movil-horizontal { display:none; }
+    }
+</style>
+ 
+// ...
+ 
+<div id="aviso-movil-horizontal">
+    Por favor, coloca tu móvil en horizontal.
+</div>
+ 
+<div id="wrapper">
+    CONTENIDO NORMAL DEL SITIO WEB
+</div>
 
 <!DOCTYPE html>
 <head><title></title></head>
