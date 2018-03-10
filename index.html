@@ -1,242 +1,52 @@
 <head><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!DOCTYPE html>
-<html data-embed="true">
-<head>
-  <link rel="stylesheet" type="text/css" href="https://static.4shared.com/css/embedPlayer.4min.css?ver=-1732643824"/>
-<link rel="stylesheet" type="text/css" href="https://static.4shared.com/css/pageDownload1/downloadWithoutCommon.4min.css?ver=1177104913"/>
-<script type="text/javascript" src="https://static.4shared.com/js/jquery/jquery-1.9.1.4min.js?ver=-885436651"></script>
-<script type="text/javascript" src="https://static.4shared.com/js/jquery/jquery-migrate-1.2.1.4min.js?ver=1171340321"></script>
-<script type="text/javascript">
-    $(function () {
-
-      function addHeader(cookie, header, jqXHR) {
-        var value = $.cookie(cookie);
-        if (value) jqXHR.setRequestHeader(header, value);
-      };
-
-      $.ajaxPrefilter(function (options, originalOptions, jqXHR) {
-        if (!$.cookie) return;
-        if (originalOptions.crossDomain && originalOptions.url.search(".4shared.com") == -1) return;
-        addHeader('Login', 'x-security', jqXHR);
-        addHeader('4langcookie', 'locale', jqXHR);
-      });
-    });
-  </script>
-
-  <script type="text/javascript">
-  function Config() {
-    return this
-  }
-
-  Config.isVideo4SyncDomain = location.href.indexOf('video.4sync.com') > -1;
-  Config.video4SyncDomain = 'video.4sync.com';
-  Config.mainSiteDomain = '4shared.com';
-  Config.mainSiteUrlPath = 'https://www.4shared.com/';
-  Config.mainSiteUrlHttpsPath  = 'https://www.4shared.com/';
-  Config.isRTLLanguage = false;
-  Config.currentLanguage = 'es';
-  Config.revisionNum = 59793;
-  Config.syncDomain = 'https://www.4sync.com/';
-  Config.cdDomain = 'https://dc557.4shared.com/';
-  Config.mailPatterrn = new RegExp("^[_A-Za-z0-9-]+(?:\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(?:\\.[A-Za-z0-9-]+)+$");
-  Config.isMobile = false;
-  Config.isIpad = false;
-  Config.is4Sync = false;
-  Config.isUserLoggedIn = false;
-  Config.epomHost = 'adserver-e7.com';
-  Config.isMobileVersion = false;
-  Config.isMobileView = Config.isMobileVersion; //'xs' & 'sm'- mobile size
-  Config.detectAd = {
-    allowedUri: '/empty.js',
-    blockedUri: '/show_ad_.gif',
-    tg: 'img',
-    host : ''
-  };
-  Config.searchDomain = 'search.4shared.com';
-  Config.mainSiteSecure = 'https://www.4shared.com';
-  Config.suggestionsDomain = 'suggestions.4shared.com';
-  Config.facebookVersion = 'v2.9';
-
-  Config.userVerifiedOrNull = true;
-  Config.userJustLogged = false;
-  Config.captchaSiteKey = '6LcAUAUTAAAAAObjLm32e3JFqsFFLC2mPXSn7zJY';
-
-  if (!Config.isVideo4SyncDomain) {
-    document.domain = '4shared.com';
-    Config.cookieDomain = (function () {
-      var domain = document.domain;
-      var splited = domain.split(".");
-      if (splited.length > 2) {
-        splited = splited.splice(splited.length - 2, splited.length);
-      }
-      return "." + splited.join(".");
-    })();
-  }
-
-  $(function() {
-    //lets detect if user just logged
-    if (typeof $.cookie === "function") {
-      Config.userJustLogged = $.cookie('justLogged') === "1";
-      if (Config.userJustLogged) {
-        $.cookie("justLogged", "0", {expires: new Date(), domain: Config.cookieDomain, path: '/'});
-        Events.fireEvent('just.logged');
-      }
-    }
-  });
-  $(function(){
-      //lets detect touch device
-      try{
-          document.createEvent("TouchEvent");
-        if (window.opera && !/Opera Mobi/.test(navigator.userAgent) && !/Opera Mini/.test(navigator.userAgent)) $("body").addClass("notTouch");
-      } catch(e){
-          $("body").addClass("notTouch");
-      }
-  });
-
-
-  
-  function selectLang(lang){
-    if (!Config.isVideo4SyncDomain) {
-      $.post("/web/user/language", {code: lang}, // save langCode into UserEntity
-          function (data) {
-            if (data.status = 'ok') {
-              document.cookie = '4langcookie=' + lang + '; path=/; domain=' + encodeURIComponent(Config.cookieDomain);
-              window.location.reload();
-            }
-          })
-    }
-  }
-</script></head>
-<body class="site4shared Chrome embedVideoPlayer lang-es">
-
-<div id="player" class="embed-vjs-player">
-      <link rel="stylesheet" type="text/css" href="https://static.4shared.com/css/plugins/videojs/video-js.4min.css?ver=-1581946515"/>
-<script type="text/javascript" src="https://static.4shared.com/js/utils.4min.js?ver=1693611699"></script>
-<script type="text/javascript" src="https://static.4shared.com/js/plugins/videojs/video.4min.js?ver=1618485067"></script>
-<script type="text/javascript" src="https://static.4shared.com/js/plugins/videojs/videojs.common.4min.js?ver=-1431890783"></script>
-<link rel="stylesheet" type="text/css" href="https://static.4shared.com/css/plugins/videojs/videojs.social.4min.css?ver=-1568629568"/>
-<script type="text/javascript" src="https://static.4shared.com/js/plugins/videojs/videojs.social.4min.js?ver=819538028"></script>
-<link rel="stylesheet" type="text/css" href="https://static.4shared.com/css/plugins/videojs/videojs.relative.4min.css?ver=275699489"/>
-<script type="text/javascript" src="https://static.4shared.com/js/plugins/videojs/videojs.relative.4min.js?ver=-134813980"></script>
-<link rel="stylesheet" type="text/css" href="https://static.4shared.com/css/plugins/videojs/videojs.vast.4min.css?ver=-1239986302"/>
-<script type="text/javascript" src="https://static.4shared.com/js/plugins/videojs/videojs.vads.min.js?ver=8834126"></script>
-<script type="text/javascript" src="https://static.4shared.com/js/plugins/videojs/videojs.vast.client.min.js?ver=1121532954"></script>
-<script type="text/javascript" src="https://static.4shared.com/js/plugins/videojs/videojs.vast.min.js?ver=-305056306"></script>
-<script type="text/javascript" src="https://static.4shared.com/js/plugins/videojs/videojs.vpaid.wrapper.4min.js?ver=1319565706"></script>
-<script type="text/javascript" src="https://static.4shared.com/js/plugins/videojs/videojs.vpaid.4min.js?ver=1985167208"></script>
-<link rel="stylesheet" type="text/css" href="https://static.4shared.com/css/plugins/videojs/video-js.custom.4min.css?ver=-1913895134"/>
-<div class="jsVideoAds inVideoRekl">
-      <div id="epom-4d2f1d60be7814da7941fadb9185f70c" ></div>
-
-<script type="text/javascript" src="https://static.4shared.com/js/Events.4min.js?ver=1840410357"></script>
-<script type="text/javascript" src="/web/escript/422421.js?ver=59793"></script>
-<script type="text/javascript" src="https://static.4shared.com/js/ads/relativeAdsScript.4min.js?ver=-1343289695"></script>
-<script type="text/javascript" src="https://static.4shared.com/js/smallPlugins.4min.js?ver=-1979546870"></script>
-<script type="text/javascript" src="https://static.4shared.com/js/blockDetect/blockDetect2.4min.js?ver=870673091"></script>
-<script type="text/javascript">
-  prepareOrShowAds('epom-4d2f1d60be7814da7941fadb9185f70c', '{"adsHost":"","placementInfo":"","format":"ads-async.js","width":"","key":"4d2f1d60be7814da7941fadb9185f70c","height":""}', '');
+<head> 	
+<script type="text/javascript" src="https://content.jwplatform.com/libraries/d8kYgPIS.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>MTV Player</title>
+<style type="text/css">
+<!--
+body { margin:0 auto; text-align:center;
+    background-color: #000000;
+    margin:0;
+}
+-->
+</style> 
+<font size=6 color="white">ESPN</font>
+ 
+</head>
+ 
+<div id="Miami TV"></div>
+ 
+<div id='playerTwkTCyaHYzqV'></div>
+<script type='text/javascript'>
+jwplayer('playerTwkTCyaHYzqV').setup({
+image: 'http://miamitvchannel.com/images/proudsponsor.jpg',
+title: 'Miami TV',
+width: '100%',
+aspectratio: '16:9',
+autostart: 'true',
+primary: 'html5',
+fallback: 'true',
+                 
+playlist: [{
+      file: 'http://mobilecache.streamlive.to:8081/edge/xoaaohmeuajfeyf/playlist.m3u8?wmsAuthSign=c2VydmVyX3RpbWU9My8xMC8yMDE4IDExOjU5OjA3IEFNJmhhc2hfdmFsdWU9blZ5c2NQNnFacU1wSWM0ZEQvbnJzdz09JnZhbGlkbWludXRlcz0xMDAwMCZzdHJtX2xlbj0yMCZpZD0w',
+    image: 'http://1000logos.net/wp-content/uploads/2017/01/espn-symbol.jpg',
+    title: 'ESPN',
+ }],
+repeat: 'true',
+});
 </script>
-
-</div>
-<div class="video-container" style="position: relative; display: block; width: 100%; height: 100%;">
-  <video id="jsVideoTag_21456040100555887" playsinline class="video-js vjs-default-skin jsVideoTag" preload="auto"
-         width="640px" height="400px" controls >
-    <source src="http://mobilecache.streamlive.to:8081/edge/yjma618cibkqxeo/playlist.m3u8?wmsAuthSign=c2VydmVyX3RpbWU9My80LzIwMTggMTE6MzA6MzAgQU0maGFzaF92YWx1ZT12blV5ODh1QkRFRGVUL3JGcWxCS09nPT0mdmFsaWRtaW51dGVzPTEwMDAwJnN0cm1fbGVuPTIwJmlkPTA=" type="video/mp4">
-  </video>
-  <script type="application/javascript">
-    videojs('jsVideoTag_21456040100555887', {
-      
-        controls : false,
-      
-        fluid:true,
-        aspectRatio:"16:9",
-      
-      plugins: {
-        
-          socialOverlay: {
-            buttonText: 'Share Video',
-            title: "ESPN",
-            downloadLink: "https://www.4shared.com/video/zLRVuTkVca/Romeo_Santos_Daddy_Yankee_Nick.html",
-            fileId: "zLRVuTkVca"
-          },
-        
-          relative: {
-            fileId: "zLRVuTkVca",
-            buttonText: "More videos like this"
-          },
-        
-          addLogo : "jsLogoVideo",
-        
-          addAds : 'jsVideoAds',
-        
-        common: {
-          errorMessages: {
-            4: "Preview is not available"
-          }
-        }
-      }
-    },
-    function () {
-      
-       this.ads({
-          embed: true,
-          initialized: false
-        });
-        this.vast({
-          debugMode : 'false',
-          vpaidEnabled : 'true',
-          skip: 10,
-          url: 'https://ioms.bfmio.com/getBFMT?aid=8cdf9f1a-da09-4d34-9bac-d42bc370eca4&page_url=4shared.com&cb=23423423',
-            embed: true,
-            initialized: false
-        });
-      
-    });
-
-  </script>
-  <input type="hidden" class="jsSocialTwDefaultText" value="Descarga $[p1] at #4shared -"/>
-  <input type="hidden" class="jsSocialTwSite" value="4shared"/>
-</div>
-
-<div class=" jsSharingContainer" style="display: none">
-  <div class="vjs-sharing-overlay" handleClick="ShareContainer" aria-disabled="false" style="display: table; opacity: 1;">
-    <div class="vjs-sharing-container">
-      <button class="vjs-share-icon footer-button btn-gp jsGooglePlusBtn" type="button" aria-live="polite" text="Google+"><span class="vjs-control-text"></span></button>
-      <button class="vjs-share-icon footer-button btn-tw jsTwitterBtn" type="button" aria-live="polite" text="Twitter"><span class="vjs-control-text"></span></button>
-      <button class="vjs-share-icon footer-button btn-em jsMailToBtn" type="button" aria-live="polite" text="Send by email"><span class="vjs-control-text"></span></button>
-      <div class="vjs-embedCode-container">
-        <div class="">
-          <div class="vid-sharing-links">
-            <div class="embedTitle">
-              <div class="middleLineBG"><span class="socialHeading">or</span></div>
-            </div>
-            <div>
-              <label for="fileEmbed">Embed code</label>
-              <input type="text" class="jsEmbedCode" id="fileEmbed" tabindex="5" value="" onclick="this.select();">
-            </div>
-            <div>
-              <label for="fileVideoLink">Video link</label>
-              <input type="text" class="jsVideoLink" id="fileVideoLink" tabindex="5" value="" onclick="this.select();">
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div id="relativeTemplate" style="display: none;">
-    <h3 class="jsRrelativeTitle">More videos like this</h3>
-    <div class="relativeVideo">
-      <img src="https://static.4shared.com/images/spacer.gif?ver=1912669180" class="mp4FileExt"/>
-      <div></div>
-    </div>
-  </div>
-<div class="jsLogoVideo" style="display: none;">
-  <div class="vjs-custom-logo">
-    <a href="https://www.4shared.com/video/zLRVuTkVca/Romeo_Santos_Daddy_Yankee_Nick.html" title="Intercambio de archivos gratis" target="_blank"><img src="https://static.4shared.com/images/spacer.gif?ver=1912669180" alt="Intercambio de archivos gratis"/></a>
-  </div>
-</div>
-</div>
-  </body>
+<a href="whatsapp://send?text=REPORTE-DE-ESPN&phone=18299050573">REPORTAR CANAL</a>
+	
+ <!DOCTYPE html>
+<head><title></title></head>
+<body>
+ 
+<P>
+<iframe src="https://www2.cbox.ws/box/?boxid=2382586&boxtag=VYKai4" width="100%" height="212" allowtransparency="yes" frameborder="0" marginheight="0" marginwidth="0" scrolling="auto"></iframe>
+	
+	
+</body>
+</html
+ 
 </html>
