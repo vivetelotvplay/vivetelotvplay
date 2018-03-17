@@ -1,8 +1,686 @@
-<!DOCTYPE html>
-<head><title></title></head>
-<body>
+<br>
+<br>
+<br>
+<br>
+<br>
 
-<a title="Los Tejos" href="GO:5"><img src="data:image/png;base64,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" alt="Los Tejos" /></a>
+<head><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head> 	
+<script type="text/javascript" src="https://content.jwplatform.com/libraries/d8kYgPIS.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>MTV Player</title>
+<style type="text/css">
+<!--
+body { margin:0 auto; text-align:center;
+    background-color: #470B0B;
+    margin:0;
+}
+-->
+</style> 
+<font size=6 color="white">MORTAL 104.9</font>
+<br>
+ 
+     <a title="Los Tejos" href="GO:MORTAL"><img src="https://www.dercocenter.cl/wp-content/themes/dercocenter/img/play.png" alt="Los Tejos" /></a>
 
+<br>
+
+<a href="whatsapp://send?text=REPORTE-DE-MORTAL1049&phone=18299050573">REPORTAR CANAL</a>
+
+	
+ 
+	
 </body>
+</html
+ 
 </html>
+
+
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<head><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head> 	
+<script type="text/javascript" src="https://content.jwplatform.com/libraries/d8kYgPIS.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>MTV Player</title>
+<style type="text/css">
+<!--
+body { margin:0 auto; text-align:center;
+    background-color: #000000;
+    margin:0;
+}
+-->
+</style> 
+<font size=6 color="white">TELEANTILLA 2</font>
+<br>
+ 
+     <a title="Los Tejos" href="GO:2"><img src="https://www.dercocenter.cl/wp-content/themes/dercocenter/img/play.png" alt="Los Tejos" /></a>
+
+<br>
+
+<a href="whatsapp://send?text=REPORTE-DE-TELEANTILLA&phone=18299050573">REPORTAR CANAL</a>
+
+	
+ 
+	
+</body>
+</html
+ 
+</html>
+
+
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<head><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head> 	
+<script type="text/javascript" src="https://content.jwplatform.com/libraries/d8kYgPIS.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>MTV Player</title>
+<style type="text/css">
+<!--
+body { margin:0 auto; text-align:center;
+    background-color: #000000;
+    margin:0;
+}
+-->
+</style> 
+<font size=6 color="white">ANTENA 3</font>
+<br>
+
+     <a title="Los Tejos" href="GO:3"><img src="https://www.dercocenter.cl/wp-content/themes/dercocenter/img/play.png" alt="Los Tejos" /></a>
+
+<br>
+
+<a href="whatsapp://send?text=REPORTE-DE-ANTENA3&phone=18299050573">REPORTAR CANAL</a>
+
+	
+ 
+	
+</body>
+</html
+ 
+</html>
+
+
+
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<head><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head> 	
+<script type="text/javascript" src="https://content.jwplatform.com/libraries/d8kYgPIS.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>MTV Player</title>
+<style type="text/css">
+<!--
+body { margin:0 auto; text-align:center;
+    background-color: #000000;
+    margin:0;
+}
+-->
+</style> 
+<font size=6 color="white">CERTV 4</font>
+<br>
+ 
+     <a title="Los Tejos" href="GO:4"><img src="https://www.dercocenter.cl/wp-content/themes/dercocenter/img/play.png" alt="Los Tejos" /></a>
+
+<br>
+
+<a href="whatsapp://send?text=REPORTE-DE-CERTV4&phone=18299050573">REPORTAR CANAL</a>
+
+	
+ 
+	
+</body>
+</html
+ 
+</html>
+
+
+
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<head><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head> 	
+<script type="text/javascript" src="https://content.jwplatform.com/libraries/d8kYgPIS.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>MTV Player</title>
+<style type="text/css">
+<!--
+body { margin:0 auto; text-align:center;
+    background-color: #000000;
+    margin:0;
+}
+-->
+</style> 
+<font size=6 color="white">TELEMICRO 5</font>
+<br>
+ 
+     <a title="Los Tejos" href="GO:5"><img src="https://www.dercocenter.cl/wp-content/themes/dercocenter/img/play.png" alt="Los Tejos" /></a>
+
+<br>
+
+<a href="whatsapp://send?text=REPORTE-DE-TELEMICRO5&phone=18299050573">REPORTAR CANAL</a>
+
+	
+ 
+	
+</body>
+</html
+ 
+</html>
+
+
+
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<head><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head> 	
+<script type="text/javascript" src="https://content.jwplatform.com/libraries/d8kYgPIS.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>MTV Player</title>
+<style type="text/css">
+<!--
+body { margin:0 auto; text-align:center;
+    background-color: #000000;
+    margin:0;
+}
+-->
+</style> 
+<font size=6 color="white">ANTENA LATINA 7</font>
+<br>
+ 
+     <a title="Los Tejos" href="GO:7"><img src="https://www.dercocenter.cl/wp-content/themes/dercocenter/img/play.png" alt="Los Tejos" /></a>
+
+<br>
+
+<a href="whatsapp://send?text=REPORTE-DE-ANTENALATINA7&phone=18299050573">REPORTAR CANAL</a>
+
+	
+ 
+	
+</body>
+</html
+ 
+</html>
+
+
+
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<head><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head> 	
+<script type="text/javascript" src="https://content.jwplatform.com/libraries/d8kYgPIS.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>MTV Player</title>
+<style type="text/css">
+<!--
+body { margin:0 auto; text-align:center;
+    background-color: #000000;
+    margin:0;
+}
+-->
+</style> 
+<font size=6 color="white">COLOR VISIÓN 9</font>
+<br>
+
+     <a title="Los Tejos" href="GO:9"><img src="https://www.dercocenter.cl/wp-content/themes/dercocenter/img/play.png" alt="Los Tejos" /></a>
+
+<br>
+
+<a href="whatsapp://send?text=REPORTE-DE-COLORVISION9&phone=18299050573">REPORTAR CANAL</a>
+
+	
+ 
+	
+</body>
+</html
+ 
+</html>
+
+
+
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<head><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head> 	
+<script type="text/javascript" src="https://content.jwplatform.com/libraries/d8kYgPIS.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>MTV Player</title>
+<style type="text/css">
+<!--
+body { margin:0 auto; text-align:center;
+    background-color: #000000;
+    margin:0;
+}
+-->
+</style> 
+<font size=6 color="white">TELESISTEMA 11</font>
+<br>
+ 
+     <a title="Los Tejos" href="GO:11"><img src="https://www.dercocenter.cl/wp-content/themes/dercocenter/img/play.png" alt="Los Tejos" /></a>
+
+<br>
+
+<a href="whatsapp://send?text=REPORTE-DE-TELESISTEMA11&phone=18299050573">REPORTAR CANAL</a>
+
+	
+ 
+	
+</body>
+</html
+ 
+</html>
+
+
+
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<head><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head> 	
+<script type="text/javascript" src="https://content.jwplatform.com/libraries/d8kYgPIS.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>MTV Player</title>
+<style type="text/css">
+<!--
+body { margin:0 auto; text-align:center;
+    background-color: #000000;
+    margin:0;
+}
+-->
+</style> 
+<font size=6 color="white">TELECENTRO 13</font>
+<br>
+ 
+     <a title="Los Tejos" href="GO:13"><img src="https://www.dercocenter.cl/wp-content/themes/dercocenter/img/play.png" alt="Los Tejos" /></a>
+
+<br>
+
+<a href="whatsapp://send?text=REPORTE-DE-TELECENTRO13&phone=18299050573">REPORTAR CANAL</a>
+
+	
+ 
+	
+</body>
+</html
+ 
+</html>
+
+
+
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<head><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head> 	
+<script type="text/javascript" src="https://content.jwplatform.com/libraries/d8kYgPIS.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>MTV Player</title>
+<style type="text/css">
+<!--
+body { margin:0 auto; text-align:center;
+    background-color: #000000;
+    margin:0;
+}
+-->
+</style> 
+<font size=6 color="white">DIGITAL 15</font>
+<br>
+
+     <a title="Los Tejos" href="GO:15"><img src="https://www.dercocenter.cl/wp-content/themes/dercocenter/img/play.png" alt="Los Tejos" /></a>
+
+<br>
+
+<a href="whatsapp://send?text=REPORTE-DE-DIGITAL15&phone=18299050573">REPORTAR CANAL</a>
+
+	
+ 
+	
+</body>
+</html
+ 
+</html>
+
+
+
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<head><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head> 	
+<script type="text/javascript" src="https://content.jwplatform.com/libraries/d8kYgPIS.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>MTV Player</title>
+<style type="text/css">
+<!--
+body { margin:0 auto; text-align:center;
+    background-color: #000000;
+    margin:0;
+}
+-->
+</style> 
+<font size=6 color="white">MEGA CINE</font>
+<br>
+
+     <a title="Los Tejos" href="GO:MEGACINE"><img src="https://www.dercocenter.cl/wp-content/themes/dercocenter/img/play.png" alt="Los Tejos" /></a>
+
+<br>
+
+<a href="whatsapp://send?text=REPORTE-DE-MEGACINE&phone=18299050573">REPORTAR CANAL</a>
+
+	
+ 
+	
+</body>
+</html
+ 
+</html>
+
+
+
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+<head><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head> 	
+<script type="text/javascript" src="https://content.jwplatform.com/libraries/d8kYgPIS.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>MTV Player</title>
+<style type="text/css">
+<!--
+body { margin:0 auto; text-align:center;
+    background-color: #000000;
+    margin:0;
+}
+-->
+</style> 
+<font size=6 color="white">LOCO MOTION</font>
+<br>
+
+     <a title="Los Tejos" href="GO:LOCOMOTION"><img src="https://www.dercocenter.cl/wp-content/themes/dercocenter/img/play.png" alt="Los Tejos" /></a>
+
+<br>
+
+<a href="whatsapp://send?text=REPORTE-DE-LOCOMOTION&phone=18299050573">REPORTAR CANAL</a>
+
+	
+ 
+	
+</body>
+</html
+ 
+</html>
+
+
+
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<head><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head> 	
+<script type="text/javascript" src="https://content.jwplatform.com/libraries/d8kYgPIS.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>MTV Player</title>
+<style type="text/css">
+<!--
+body { margin:0 auto; text-align:center;
+    background-color: #000000;
+    margin:0;
+}
+-->
+</style> 
+<font size=6 color="white">MYTV 24</font>
+<br>
+
+     <a title="Los Tejos" href="GO:24"><img src="https://www.dercocenter.cl/wp-content/themes/dercocenter/img/play.png" alt="Los Tejos" /></a>
+
+<br>
+
+<a href="whatsapp://send?text=REPORTE-DE-MYTV24&phone=18299050573">REPORTAR CANAL</a>
+
+	
+ 
+	
+</body>
+</html
+ 
+</html>
+
+
+
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<head><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head> 	
+<script type="text/javascript" src="https://content.jwplatform.com/libraries/d8kYgPIS.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>MTV Player</title>
+<style type="text/css">
+<!--
+body { margin:0 auto; text-align:center;
+    background-color: #000000;
+    margin:0;
+}
+-->
+</style> 
+<font size=6 color="white">RNN 27</font>
+<br>
+ 
+     <a title="Los Tejos" href="GO:27"><img src="https://www.dercocenter.cl/wp-content/themes/dercocenter/img/play.png" alt="Los Tejos" /></a>
+
+<br>
+
+<a href="whatsapp://send?text=REPORTE-DE-RNN27&phone=18299050573">REPORTAR CANAL</a>
+
+	
+ 
+	
+</body>
+</html
+ 
+</html>
+
+
+
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<head><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head> 	
+<script type="text/javascript" src="https://content.jwplatform.com/libraries/d8kYgPIS.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>MTV Player</title>
+<style type="text/css">
+<!--
+body { margin:0 auto; text-align:center;
+    background-color: #000000;
+    margin:0;
+}
+-->
+</style> 
+<font size=6 color="white">FARO VISIÓN</font>
+<br>
+ 
+     <a title="Los Tejos" href="GO:FAROVISION"><img src="https://www.dercocenter.cl/wp-content/themes/dercocenter/img/play.png" alt="Los Tejos" /></a>
+
+<br>
+
+<a href="whatsapp://send?text=REPORTE-DE-FAROVISION&phone=18299050573">REPORTAR CANAL</a>
+
+	
+ 
+	
+</body>
+</html
+ 
+</html>
+
+
+
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<head><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head> 	
+<script type="text/javascript" src="https://content.jwplatform.com/libraries/d8kYgPIS.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>MTV Player</title>
+<style type="text/css">
+<!--
+body { margin:0 auto; text-align:center;
+    background-color: #000000;
+    margin:0;
+}
+-->
+</style> 
+<font size=6 color="white">MIAMI TV +18</font>
+<br>
+ 
+     <a title="Los Tejos" href="GO:MIAMITV"><img src="https://www.dercocenter.cl/wp-content/themes/dercocenter/img/play.png" alt="Los Tejos" /></a>
+
+<br>
+
+<a href="whatsapp://send?text=REPORTE-DE-MIAMITV&phone=18299050573">REPORTAR CANAL</a>
+
+	
+ 
+	
+</body>
+</html
+ 
+</html>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
