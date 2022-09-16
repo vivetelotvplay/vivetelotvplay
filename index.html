@@ -18,13 +18,13 @@
 
 <script type="text/javascript" src="https://cdn.jwplayer.com/libraries/LNeXtPCD.js"></script>
 
-<div id="player">LIVE</div>
+  <div id="player">LIVE</div>
 
 
 
 <script>
 jwplayer("player").setup({
-"aspectratio": "16:12",
+"aspectratio": "16:9",
 sources: [ {fileType: 'rtmp',file: ''}, {fileType: 'm3u8',file: 'https://dwamdstream104.akamaized.net/hls/live/2015530/dwstream104/stream02/streamPlaylist.m3u8'}],
 autostart: true,
 });
