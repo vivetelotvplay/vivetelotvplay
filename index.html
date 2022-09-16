@@ -1,11 +1,32 @@
 
-<?php
-header("Status: 301 Moved Permanently");
-header("Location: ");
-exit;
-?>
-<script> 
-<!--
-window.location.replace('http://181.13.92.53:6565'); 
-//-->
-</script>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Demo: JWPlayer 8 with VTT chapters</title> 
+    <script src="https://cdn.jwplayer.com/libraries/UkTH5AEs.js"></script>            
+  </head>
+  <body class="homepage">
+    <section class="section">
+      <div id="player"></div>
+      <script type="text/javascript">
+        jwplayer("player").setup({ 
+          playlist: {
+            file: "https://www.dropbox.com/s/3okr7qq4kmk5a8y/MSP_4687_SD_SEAMLESS%20-%20Christina%20Aguilera%20--%20%E2%80%A2%20Full%20Show%20%E2%80%A2%20--%20Intimate%20and%20Interactive%20--%202000%2005-17.mp4?raw=1",
+            image: "https://hub.dev.musicpeaks.com/sites/default/files/2020-03/0%20-%20title%20still%20MSP_4687_SD_SEAMLESS%20-%20Christina%20Aguilera%20--%20•%20Full%20Show%20•%20--%20Intimate%20and%20Interactive%20--%202000%2005-1.jpeg",
+            tracks: [
+              {
+                file:'assets/tiles/thumbnails.vtt',
+                kind:'thumbnails'
+              },
+              {
+                file:'assets/tiles/chapters.vtt',
+                kind:'chapters'            
+              }
+            ]
+          }
+        });
+      </script>
+    </section>
+  </body>
+</html>
