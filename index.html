@@ -1,32 +1,41 @@
 
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <title>Demo: JWPlayer 8 with VTT chapters</title> 
-    <script src="https://cdn.jwplayer.com/libraries/UkTH5AEs.js"></script>            
-  </head>
-  <body class="homepage">
-    <section class="section">
-      <div id="player"></div>
-      <script type="text/javascript">
-        jwplayer("player").setup({ 
-          playlist: {
-            file: "http://stream2.grupotelemicro.com:8081/live/55/playlist.m3u8",
-            image: "https://play-lh.googleusercontent.com/pRFLQajAwPpSxEq9Ai1v7tKXi351pNebfOMubB7nozUUckTvipr6GcFTY1G8Ka5Zvm4",
-            tracks: [
-              {
-                file:'assets/tiles/thumbnails.vtt',
-                kind:'thumbnails'
-              },
-              {
-                file:'assets/tiles/chapters.vtt',
-                kind:'chapters'            
-              }
-            ]
-          }
-        });
-      </script>
-    </section>
-  </body>
-</html>
+
+<html>
+<head>
+<title>Abide Önü Canlı İzle</title>
+<style>
+	html{overflow: hidden; width:100%; height: 100%}
+	body{width: 100%; height: 100%; padding: 0px; margin:0px; background-color:black; color: white;}
+</style>
+</head>
+
+<body style="width: 100%; height: 100%; padding: 0px; margin:0px" >
+
+
+
+<div id="player" style="width: 100%; height: 100%">Yukleniyor...</div>
+
+
+
+   <script src="https://cdn.jwplayer.com/libraries/dfAfw1pP.js"></script>
+<script>
+
+  jwplayer("player").setup({
+		"key":"CxiEp9wcPg+MFQuaWYSJcSQOQgnsGF3ijWunqwfSSnE=",
+
+  	"autostart": "viewable",
+		  "width": "100%",
+	  "aspectratio": "16:9",
+    "file": "https://dwamdstream104.akamaized.net/hls/live/2015530/dwstream104/stream02/streamPlaylist.m3u8"
+  });
+	
+	$(document).ready(function(){
+		jwplayer().resize(window.innerWidth, window.innerHeight);
+		$(window).on('resize', function(){
+      		jwplayer().resize(window.innerWidth, window.innerHeight);
+		});
+		if(jwplayer().on('fullscreen')){jwplayer().setVolume(70)};
+	})
+
+</script>
+</body>
