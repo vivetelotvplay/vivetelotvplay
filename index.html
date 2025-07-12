@@ -144,6 +144,65 @@
 </body>
 </html>
 
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>QR con logo de Telegram</title>
+  <script src="https://cdn.jsdelivr.net/npm/qrcodejs/qrcode.min.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding-top: 50px;
+    }
+
+    #qr-container {
+      position: relative;
+      display: inline-block;
+      cursor: pointer;
+    }
+
+    #logo {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 50px;
+      height: 50px;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      background: white;
+      padding: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Escanea o toca para abrir Telegram</h2>
+
+  <a id="qr-link" href="https://t.me/candito606" target="_blank">
+    <div id="qr-container">
+      <div id="qrcode"></div>
+      <img id="logo" src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram Logo">
+    </div>
+  </a>
+
+  <script>
+    const qrText = "https://t.me/candito606";
+
+    new QRCode(document.getElementById("qrcode"), {
+      text: qrText,
+      width: 200,
+      height: 200,
+      colorDark: "#000000",
+      colorLight: "#ffffff",
+      correctLevel: QRCode.CorrectLevel.H // alta corrección de errores para que soporte el logo
+    });
+  </script>
+
+</body>
+</html>
+
 
 
 
