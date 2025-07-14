@@ -75,12 +75,12 @@
 
 .header-text {
     font-family: 'Arial', sans-serif; /* O usa 'Roboto', 'Poppins', o similar para una apariencia moderna */
-    font-size: 24px; /* Tamaño que se adapta bien a la página */
+    font-size: 24px; /* Tama�o que se adapta bien a la p�gina */
     color: #000080; /* Azul marino */
-    font-weight: 600; /* Para un toque más moderno y profesional */
+    font-weight: 600; /* Para un toque m�s moderno y profesional */
     text-align: center;
-    margin-top: 20px; /* Ajusta el espacio según necesites */
-    letter-spacing: 1px; /* Añade algo de espacio entre letras para un estilo moderno */
+    margin-top: 20px; /* Ajusta el espacio seg�n necesites */
+    letter-spacing: 1px; /* A�ade algo de espacio entre letras para un estilo moderno */
 }
 
 </style>
@@ -105,7 +105,7 @@
     var input = document.getElementById("codigo");
     var submit = document.getElementById("submit");
 
-    // Abre el teclado automáticamente al cargar la página
+    // Abre el teclado autom�ticamente al cargar la p�gina
     input.focus();
     input.click();
 
@@ -141,70 +141,33 @@
 
 
 
-</body>
-</html>
-
-<!DOCTYPE html>
-<html lang="es">
-<head>
+ 
+  
   <meta charset="UTF-8">
-  <title>QR con logo de Telegram</title>
-  <script src="https://cdn.jsdelivr.net/npm/qrcodejs/qrcode.min.js"></script>
+  <title>Mostrar Imagen</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      padding-top: 50px;
+      margin: 0;
+      padding: 0;
     }
 
-    #qr-container {
-      position: relative;
-      display: inline-block;
-      cursor: pointer;
-    }
-
-    #logo {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 50px;
-      height: 50px;
-      transform: translate(-50%, -50%);
-      border-radius: 50%;
-      background: white;
-      padding: 5px;
+    img {
+      position: fixed; /* La fija en pantalla */
+      top: 20px;       /* 20px desde arriba */
+      right: 20px;     /* 20px desde la derecha */
+      max-width: 10%;
+      height: auto;
+      z-index: 1000;   /* Que est� encima de otros elementos */
     }
   </style>
-</head>
-<body>
 
-  <h2>Escanea o toca para abrir Telegram</h2>
 
-  <a id="qr-link" href="https://t.me/candito606" target="_blank">
-    <div id="qr-container">
-      <div id="qrcode"></div>
-      <img id="logo" src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram Logo">
-    </div>
-  </a>
+  <!-- Imagen en la esquina superior derecha -->
+  <img src="https://vivelotvg.store/baja.png" alt="Mi imagen">
 
-  <script>
-    const qrText = "https://t.me/candito606";
 
-    new QRCode(document.getElementById("qrcode"), {
-      text: qrText,
-      width: 200,
-      height: 200,
-      colorDark: "#000000",
-      colorLight: "#ffffff",
-      correctLevel: QRCode.CorrectLevel.H // alta corrección de errores para que soporte el logo
-    });
-  </script>
+
+
 
 </body>
 </html>
-
-
-
-
-
-
