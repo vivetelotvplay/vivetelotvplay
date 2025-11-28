@@ -909,13 +909,19 @@
                     const addressEl = document.getElementById('footerAddress');
                     addressEl.textContent = config.store.address;
                     if (config.store.mapsUrl) {
-                        addressEl.href = config.store.mapsUrl;
+                        const sanitizedMapsUrl = sanitizeUrl(config.store.mapsUrl);
+                        if (sanitizedMapsUrl) {
+                            addressEl.href = sanitizedMapsUrl;
+                        }
                     }
                 }
 
                 if (config.store.logoUrl) {
-                    const logoContainer = document.getElementById('storeLogo');
-                    logoContainer.innerHTML = `<img src="${config.store.logoUrl}" alt="Logo" onerror="this.style.display='none'"><span>${config.store.name || 'Vívelo Store'}</span>`;
+                    const sanitizedLogoUrl = sanitizeUrl(config.store.logoUrl);
+                    if (sanitizedLogoUrl) {
+                        const logoContainer = document.getElementById('storeLogo');
+                        logoContainer.innerHTML = `<img src="${sanitizedLogoUrl}" alt="Logo" onerror="this.style.display='none'"><span>${escapeHtml(config.store.name || 'Vívelo Store')}</span>`;
+                    }
                 }
             }
         }
@@ -930,18 +936,26 @@
                 return;
             }
 
-            slidesContainer.innerHTML = slides.map(slide => `
-                <div class="carousel-slide" style="background-image: url('${slide.imageUrl}')">
+            slidesContainer.innerHTML = slides.map(slide => {
+                const sanitizedImageUrl = sanitizeUrl(slide.imageUrl) || '';
+                return `
+                <div class="carousel-slide" style="background-image: url('${sanitizedImageUrl}')">
                     <div class="carousel-content">
                         <h2>${escapeHtml(slide.title)}</h2>
                         <p>${escapeHtml(slide.description)}</p>
                     </div>
                 </div>
-            `).join('');
+            `;
+            }).join('');
 
             navContainer.innerHTML = slides.map((_, i) => `
-                <div class="carousel-dot ${i === 0 ? 'active' : ''}" onclick="goToSlide(${i})"></div>
+                <div class="carousel-dot ${i === 0 ? 'active' : ''}"></div>
             `).join('');
+            
+            // Add event listeners for carousel dots
+            navContainer.querySelectorAll('.carousel-dot').forEach((dot, index) => {
+                dot.addEventListener('click', () => goToSlide(index));
+            });
         }
 
         function startCarousel() {
@@ -986,11 +1000,16 @@
             const categories = config.categories || [...new Set(products.map(p => p.category))];
 
             container.innerHTML = `
-                <button class="category-btn active" data-category="all" onclick="filterByCategory('all')">Todos</button>
+                <button class="category-btn active" data-category="all">Todos</button>
                 ${categories.map(cat => `
-                    <button class="category-btn" data-category="${escapeHtml(cat)}" onclick="filterByCategory('${escapeHtml(cat)}')">${escapeHtml(cat)}</button>
+                    <button class="category-btn" data-category="${escapeHtml(cat)}">${escapeHtml(cat)}</button>
                 `).join('')}
             `;
+            
+            // Add event listeners for category buttons
+            container.querySelectorAll('.category-btn').forEach(btn => {
+                btn.addEventListener('click', () => filterByCategory(btn.dataset.category));
+            });
         }
 
         function filterByCategory(category) {
@@ -1019,15 +1038,17 @@
                 return;
             }
 
-            container.innerHTML = filteredProducts.map(product => `
-                <div class="product-card">
+            container.innerHTML = filteredProducts.map(product => {
+                const sanitizedVideoUrl = sanitizeUrl(product.videoUrl);
+                const sanitizedPosterUrl = sanitizeUrl(product.posterUrl) || 'https://via.placeholder.com/300x280?text=Sin+Imagen';
+                return `
+                <div class="product-card" data-product-id="${product.id}">
                     <div class="product-media">
-                        <img src="${product.posterUrl || 'https://via.placeholder.com/300x280?text=Sin+Imagen'}" 
+                        <img src="${sanitizedPosterUrl}" 
                              alt="${escapeHtml(product.name)}"
                              onerror="this.src='https://via.placeholder.com/300x280?text=Error'">
-                        ${product.videoUrl ? `
-                            <video src="${product.videoUrl}" muted loop playsinline
-                                   onmouseenter="this.play()" onmouseleave="this.pause(); this.currentTime=0;">
+                        ${sanitizedVideoUrl ? `
+                            <video src="${sanitizedVideoUrl}" muted loop playsinline>
                             </video>
                         ` : ''}
                     </div>
@@ -1037,13 +1058,28 @@
                         <p class="product-description">${escapeHtml(product.description || '')}</p>
                         <div class="product-footer">
                             <span class="product-price">$${product.price.toFixed(2)}</span>
-                            <button class="add-to-cart-btn" onclick="addToCart(${product.id})">
+                            <button class="add-to-cart-btn" data-add-cart="${product.id}">
                                 Agregar 🛒
                             </button>
                         </div>
                     </div>
                 </div>
-            `).join('');
+            `;
+            }).join('');
+            
+            // Add event listeners for add to cart buttons
+            container.querySelectorAll('.add-to-cart-btn[data-add-cart]').forEach(btn => {
+                btn.addEventListener('click', () => addToCart(parseInt(btn.dataset.addCart)));
+            });
+            
+            // Add event listeners for video hover
+            container.querySelectorAll('.product-media video').forEach(video => {
+                video.parentElement.addEventListener('mouseenter', () => video.play());
+                video.parentElement.addEventListener('mouseleave', () => {
+                    video.pause();
+                    video.currentTime = 0;
+                });
+            });
         }
 
         // ==================== CART ====================
@@ -1159,6 +1195,20 @@
             const div = document.createElement('div');
             div.textContent = text;
             return div.innerHTML;
+        }
+
+        function sanitizeUrl(url) {
+            if (!url) return '';
+            try {
+                const parsed = new URL(url);
+                // Only allow http and https protocols
+                if (parsed.protocol === 'http:' || parsed.protocol === 'https:') {
+                    return url;
+                }
+                return '';
+            } catch (e) {
+                return '';
+            }
         }
 
         function showToast(message, type = 'info') {

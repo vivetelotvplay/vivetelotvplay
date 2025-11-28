@@ -1261,17 +1261,20 @@
             const categoryFilter = document.getElementById('categoryFilter').value;
 
             let filteredProducts = products.filter(p => {
+                const description = p.description || '';
                 const matchesSearch = p.name.toLowerCase().includes(searchTerm) || 
-                                     p.description.toLowerCase().includes(searchTerm);
+                                     description.toLowerCase().includes(searchTerm);
                 const matchesCategory = !categoryFilter || p.category === categoryFilter;
                 return matchesSearch && matchesCategory;
             });
 
-            tbody.innerHTML = filteredProducts.map(p => `
+            tbody.innerHTML = filteredProducts.map(p => {
+                const sanitizedPosterUrl = sanitizeUrl(p.posterUrl) || 'https://via.placeholder.com/60';
+                return `
                 <tr>
                     <td>
-                        <img src="${p.posterUrl || 'https://via.placeholder.com/60'}" 
-                             alt="${p.name}" 
+                        <img src="${sanitizedPosterUrl}" 
+                             alt="${escapeHtml(p.name)}" 
                              class="table-thumbnail"
                              onerror="this.src='https://via.placeholder.com/60?text=No+Image'">
                     </td>
@@ -1279,11 +1282,20 @@
                     <td><span class="badge badge-primary">${escapeHtml(p.category)}</span></td>
                     <td>$${p.price.toFixed(2)}</td>
                     <td class="table-actions">
-                        <button class="btn btn-outline btn-sm" onclick="editProduct(${p.id})">✏️ Editar</button>
-                        <button class="btn btn-danger btn-sm" onclick="confirmDeleteProduct(${p.id})">🗑️</button>
+                        <button class="btn btn-outline btn-sm" data-edit-product="${p.id}">✏️ Editar</button>
+                        <button class="btn btn-danger btn-sm" data-delete-product="${p.id}">🗑️</button>
                     </td>
                 </tr>
-            `).join('');
+            `;
+            }).join('');
+            
+            // Add event listeners for product actions
+            tbody.querySelectorAll('[data-edit-product]').forEach(btn => {
+                btn.addEventListener('click', () => editProduct(parseInt(btn.dataset.editProduct)));
+            });
+            tbody.querySelectorAll('[data-delete-product]').forEach(btn => {
+                btn.addEventListener('click', () => confirmDeleteProduct(parseInt(btn.dataset.deleteProduct)));
+            });
         }
 
         function updateCategoryFilters() {
@@ -1303,18 +1315,26 @@
 
         function updateSlidesGrid() {
             const grid = document.getElementById('slidesGrid');
-            grid.innerHTML = slides.map(s => `
+            grid.innerHTML = slides.map(s => {
+                const sanitizedImageUrl = sanitizeUrl(s.imageUrl) || 'https://via.placeholder.com/400x180?text=No+Image';
+                return `
                 <div class="slide-card">
-                    <img src="${s.imageUrl || 'https://via.placeholder.com/400x180?text=No+Image'}" 
+                    <img src="${sanitizedImageUrl}" 
                          alt="${escapeHtml(s.title)}"
                          onerror="this.src='https://via.placeholder.com/400x180?text=Error'">
                     <div class="slide-card-body">
                         <h3>${escapeHtml(s.title)}</h3>
                         <p>${escapeHtml(s.description)}</p>
-                        <button class="btn btn-outline btn-sm" onclick="editSlide(${s.id})">✏️ Editar</button>
+                        <button class="btn btn-outline btn-sm" data-edit-slide="${s.id}">✏️ Editar</button>
                     </div>
                 </div>
-            `).join('');
+            `;
+            }).join('');
+            
+            // Add event listeners for slide edit buttons
+            grid.querySelectorAll('[data-edit-slide]').forEach(btn => {
+                btn.addEventListener('click', () => editSlide(parseInt(btn.dataset.editSlide)));
+            });
         }
 
         function updateConfigForm() {
@@ -1439,8 +1459,9 @@
         function previewProductVideo() {
             const url = document.getElementById('productVideoUrl').value;
             const preview = document.getElementById('videoPreview');
-            if (url) {
-                preview.src = url;
+            const sanitizedUrl = sanitizeUrl(url);
+            if (sanitizedUrl) {
+                preview.src = sanitizedUrl;
                 preview.style.display = 'block';
             } else {
                 preview.style.display = 'none';
@@ -1450,8 +1471,9 @@
         function previewProductPoster() {
             const url = document.getElementById('productPosterUrl').value;
             const preview = document.getElementById('posterPreview');
-            if (url) {
-                preview.src = url;
+            const sanitizedUrl = sanitizeUrl(url);
+            if (sanitizedUrl) {
+                preview.src = sanitizedUrl;
                 preview.style.display = 'block';
                 preview.onerror = () => preview.style.display = 'none';
             } else {
@@ -1486,6 +1508,12 @@
                 showToast('Por favor completa todos los campos', 'error');
                 return;
             }
+            
+            // Validate URL
+            if (!sanitizeUrl(imageUrl)) {
+                showToast('Por favor ingresa una URL válida para la imagen', 'error');
+                return;
+            }
 
             const index = slides.findIndex(s => s.id === id);
             if (index !== -1) {
@@ -1500,8 +1528,9 @@
         function previewSlideImage() {
             const url = document.getElementById('slideImageUrl').value;
             const preview = document.getElementById('slideImagePreview');
-            if (url) {
-                preview.src = url;
+            const sanitizedUrl = sanitizeUrl(url);
+            if (sanitizedUrl) {
+                preview.src = sanitizedUrl;
                 preview.style.display = 'block';
                 preview.onerror = () => preview.style.display = 'none';
             } else {
@@ -1662,6 +1691,20 @@
             const div = document.createElement('div');
             div.textContent = text;
             return div.innerHTML;
+        }
+
+        function sanitizeUrl(url) {
+            if (!url) return '';
+            try {
+                const parsed = new URL(url);
+                // Only allow http and https protocols
+                if (parsed.protocol === 'http:' || parsed.protocol === 'https:') {
+                    return url;
+                }
+                return '';
+            } catch (e) {
+                return '';
+            }
         }
 
         // ==================== EVENT LISTENERS ====================
