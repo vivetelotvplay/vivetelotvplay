@@ -1,0 +1,22 @@
+{
+  "store": {
+    "name": "Vívelo TV Play Store",
+    "phone": "+1 234 567 8900",
+    "email": "contacto@vivelo.com",
+    "address": "Calle Principal #123, Ciudad, País",
+    "mapsUrl": "https://maps.google.com/?q=19.432608,-99.133209",
+    "logoUrl": ""
+  },
+  "theme": {
+    "primaryColor": "#2563eb",
+    "darkColor": "#1e40af",
+    "lightColor": "#f8fafc"
+  },
+  "categories": [
+    "Calzado",
+    "Ropa",
+    "Accesorios",
+    "Electrónica",
+    "Hogar"
+  ]
+}
