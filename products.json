@@ -1,0 +1,112 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Sneakers Urbanos",
+      "category": "Calzado",
+      "price": 89.00,
+      "description": "Sneakers modernos con diseño urbano y cómodos para uso diario.",
+      "videoUrl": "https://sample-videos.com/video321/mp4/720/big_buck_bunny_720p_1mb.mp4",
+      "posterUrl": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400"
+    },
+    {
+      "id": 2,
+      "name": "Camiseta Premium",
+      "category": "Ropa",
+      "price": 35.00,
+      "description": "Camiseta de algodón premium con corte moderno.",
+      "videoUrl": "https://sample-videos.com/video321/mp4/720/big_buck_bunny_720p_1mb.mp4",
+      "posterUrl": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400"
+    },
+    {
+      "id": 3,
+      "name": "Reloj Deportivo",
+      "category": "Accesorios",
+      "price": 120.00,
+      "description": "Reloj deportivo resistente al agua con múltiples funciones.",
+      "videoUrl": "https://sample-videos.com/video321/mp4/720/big_buck_bunny_720p_1mb.mp4",
+      "posterUrl": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400"
+    },
+    {
+      "id": 4,
+      "name": "Mochila Viajera",
+      "category": "Accesorios",
+      "price": 65.00,
+      "description": "Mochila espaciosa ideal para viajes y actividades al aire libre.",
+      "videoUrl": "https://sample-videos.com/video321/mp4/720/big_buck_bunny_720p_1mb.mp4",
+      "posterUrl": "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400"
+    },
+    {
+      "id": 5,
+      "name": "Gorra Snapback",
+      "category": "Accesorios",
+      "price": 25.00,
+      "description": "Gorra snapback con diseño exclusivo y ajuste cómodo.",
+      "videoUrl": "https://sample-videos.com/video321/mp4/720/big_buck_bunny_720p_1mb.mp4",
+      "posterUrl": "https://images.unsplash.com/photo-1588850561407-ed78c282e89b?w=400"
+    },
+    {
+      "id": 6,
+      "name": "Pantalón Jogger",
+      "category": "Ropa",
+      "price": 55.00,
+      "description": "Pantalón jogger cómodo para uso casual o deportivo.",
+      "videoUrl": "https://sample-videos.com/video321/mp4/720/big_buck_bunny_720p_1mb.mp4",
+      "posterUrl": "https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?w=400"
+    },
+    {
+      "id": 7,
+      "name": "Sudadera Hoodie",
+      "category": "Ropa",
+      "price": 75.00,
+      "description": "Sudadera con capucha, perfecta para días fríos.",
+      "videoUrl": "https://sample-videos.com/video321/mp4/720/big_buck_bunny_720p_1mb.mp4",
+      "posterUrl": "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=400"
+    },
+    {
+      "id": 8,
+      "name": "Lentes de Sol",
+      "category": "Accesorios",
+      "price": 45.00,
+      "description": "Lentes de sol con protección UV400 y diseño moderno.",
+      "videoUrl": "https://sample-videos.com/video321/mp4/720/big_buck_bunny_720p_1mb.mp4",
+      "posterUrl": "https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=400"
+    },
+    {
+      "id": 9,
+      "name": "Botines Casuales",
+      "category": "Calzado",
+      "price": 95.00,
+      "description": "Botines de cuero sintético con estilo casual elegante.",
+      "videoUrl": "https://sample-videos.com/video321/mp4/720/big_buck_bunny_720p_1mb.mp4",
+      "posterUrl": "https://images.unsplash.com/photo-1608256246200-53e635b5b65f?w=400"
+    },
+    {
+      "id": 10,
+      "name": "Cinturón de Cuero",
+      "category": "Accesorios",
+      "price": 30.00,
+      "description": "Cinturón de cuero genuino con hebilla metálica.",
+      "videoUrl": "https://sample-videos.com/video321/mp4/720/big_buck_bunny_720p_1mb.mp4",
+      "posterUrl": "https://images.unsplash.com/photo-1624222247344-550fb60583dc?w=400"
+    },
+    {
+      "id": 11,
+      "name": "Chaqueta Bomber",
+      "category": "Ropa",
+      "price": 110.00,
+      "description": "Chaqueta bomber con diseño clásico y forro interior.",
+      "videoUrl": "https://sample-videos.com/video321/mp4/720/big_buck_bunny_720p_1mb.mp4",
+      "posterUrl": "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=400"
+    },
+    {
+      "id": 12,
+      "name": "Sandalias Deportivas",
+      "category": "Calzado",
+      "price": 40.00,
+      "description": "Sandalias deportivas cómodas para el verano.",
+      "videoUrl": "https://sample-videos.com/video321/mp4/720/big_buck_bunny_720p_1mb.mp4",
+      "posterUrl": "https://images.unsplash.com/photo-1603487742131-4160ec999306?w=400"
+    }
+  ]
+}
